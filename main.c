@@ -15,6 +15,7 @@ int main() {
     char nombres[NUM_ESTUDIANTES][MAX_NOMBRE];
     char asignaturas[NUM_ASIGNATURAS][MAX_NOMBRE];
 
+
     // El usuario ingresa los nombres de cada asignatura (usando fgets para manejar espacios)
     for (int j = 0; j < NUM_ASIGNATURAS; j++) {
         printf("Ingrese el nombre de la asignatura %d: ", j + 1);
