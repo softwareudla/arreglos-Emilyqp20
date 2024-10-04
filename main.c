@@ -15,10 +15,12 @@ int main() {
     char nombres[NUM_ESTUDIANTES][MAX_NOMBRE];
     char asignaturas[NUM_ASIGNATURAS][MAX_NOMBRE];
 
-    // El usuario ingresa los nombres de cada asignatura
+    // El usuario ingresa los nombres de cada asignatura (usando fgets para manejar espacios)
     for (int j = 0; j < NUM_ASIGNATURAS; j++) {
         printf("Ingrese el nombre de la asignatura %d: ", j + 1);
-        scanf("%s", asignaturas[j]);
+        getchar();  // Limpiar el buffer
+        fgets(asignaturas[j], MAX_NOMBRE, stdin);
+        asignaturas[j][strcspn(asignaturas[j], "\n")] = 0;  // Eliminar el salto de línea
     }
 
     // Notas mínimas y máximas para cada materia
@@ -30,10 +32,9 @@ int main() {
     // Ingreso de los nombres de cada estudiante y sus respectivas notas por asignatura
     for (int i = 0; i < NUM_ESTUDIANTES; i++) {
         printf("Ingrese el nombre del estudiante %d: ", i + 1);
-        getchar(); 
         fgets(nombres[i], MAX_NOMBRE, stdin);
-        nombres[i][strcspn(nombres[i], "\n")] = 0; 
-        
+        nombres[i][strcspn(nombres[i], "\n")] = 0;  // Eliminar el salto de línea
+
         printf("Estudiante: %s\n", nombres[i]);
         for (int j = 0; j < NUM_ASIGNATURAS; j++) {
             do {
